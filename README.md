@@ -7,9 +7,11 @@ as described in [CLJ-1561](http://dev.clojure.org/jira/browse/CLJ-1561)
 ## Usage
 
 To see the incorrect line numbers emitted, run:
+
     lein run
 
 To see the line numbers emitted by the fix, run:
+
     lein with-profiles fix run
 
 ## License
