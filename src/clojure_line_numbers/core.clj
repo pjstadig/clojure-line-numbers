@@ -12,6 +12,21 @@
   (.field
    ^Thing (identity nil)))
 
+(defn instance-field-assign
+  "I throw an exception in an instance field assignment form."
+  []
+  (set!
+   (.field
+    ^Thing (identity nil))
+   (identity nil)))
+
+(defn static-field-assign
+  "I throw an exception in a static field assignment form."
+  []
+  (set!
+   PersistentHashMap/EMPTY
+   (identity nil)))
+
 (defn instance-method
   "I throw an exception in an instance method form."
   []
@@ -58,6 +73,8 @@
 
 (defn -main [& args]
   (print-boom 0 (instance-field))
+  (print-boom 0 (instance-field-assign))
+  (print-boom 0 (static-field-assign))
   (print-boom 0 (instance-method))
   (print-boom 1 (static-method))
   (print-boom 2 (keyword-invoke))
